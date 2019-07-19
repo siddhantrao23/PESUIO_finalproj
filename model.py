@@ -2,6 +2,7 @@ import glob
 import numpy as np 
 import pandas as pd
 import csv
+from os import path
 from sklearn.linear_model import LogisticRegression, LinearRegression
 from sklearn.model_selection import train_test_split
 from warnings import simplefilter
@@ -89,7 +90,8 @@ def logistic():
 
 def main():
 	
-	split()
+	if(not(path.exists('test.csv') or path.exists('train.csv'))):
+		split()
 	clf1 = linear()
 	clf2 = logistic()	
 	
